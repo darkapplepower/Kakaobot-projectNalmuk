@@ -12,11 +12,11 @@ const chatCount=function(){
             return sort.map((x,xx)=>(xx===3?"\u200b".repeat(1000):"")+(xx+1)+"위 "+x[0]+"님 ("+x[1]+"회)").join("\n");
         },
         plus:function(room,sender){
-            if(!Object.keys(DATA).includes(room)){
+            if(!DATA.hasOwnProperty(room)){
                 let a=DataBase.getDataBase("darkbot/채팅수/"+room);
                 DATA[room]=JSON.parse(a===null?DataBase.setDataBase("darkbot/채팅수/"+room,"{}"):a);
             }
-            if(!Object.keys(DATA[room]).includes(sender)){
+            if(!DATA[room].hasOwnProperty(sender)){
                 DATA[room][sender]=1;
                 return;
             }
@@ -24,5 +24,5 @@ const chatCount=function(){
             DataBase.setDataBase("darkbot/채팅수/"+room,JSON.stringify(DATA[room]));
             return;
         }
-    }
-}()
+    };
+}();
