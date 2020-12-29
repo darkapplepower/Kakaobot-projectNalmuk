@@ -1,7 +1,7 @@
 const ud=(function(){
     const rooms={};
     return function(msg,room,sender){
-        if(!Object.keys(rooms).includes(room)){
+        if(!rooms.hasOwnProperty(room)){
             rooms[room]=[false,null];
         }
         if(msg==="시작"){
