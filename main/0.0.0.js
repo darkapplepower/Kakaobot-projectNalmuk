@@ -452,6 +452,11 @@ const ud=(function(){
     };
 })();
 const Comci = function () {
+    /*
+     Copyright (c) 2020 darkapple
+     The MIT License
+     https://github.com/darkapplepower/comcigan
+     */
     const Jsoup = org.jsoup.Jsoup;
     function getTimeTable(schoolId, grade, cl) {
         try {
