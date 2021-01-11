@@ -7,7 +7,7 @@ const garuchigi=function(){
             msg=msg.split("@");
             if(msg.length>=2){
                 if(msg[1]!==""){
-                    if(!DATA[room].hasOwnProperty(msg[0])){
+                    if(!Object.keys(DATA[room]).includes(msg[0])){
                         DATA[room][msg[0]]=msg[1];
                         DataBase.setDataBase("darkbot/학습/data",JSON.stringify(DATA));
                         return "성공적으로 학습했습니다.";
@@ -22,9 +22,9 @@ const garuchigi=function(){
             }
         },
         u:function(msg,room){
-            if(!DATA.hasOwnProperty(room))DATA[room]={};
+            if(!Object.keys(DATA).includes(room))DATA[room]={};
             msg=msg.replace(z,"");
-            if(DATA[room].hasOwnProperty(msg)){
+            if(Object.keys(DATA[room]).includes(msg)){
                 return DATA[room][msg];
             }else{
                 return false;
