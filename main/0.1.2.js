@@ -572,7 +572,7 @@ const chulsuk=(function(){
             Data={};
             Day=new Date().getDay();
         }
-        if(!Object.keys(DATA).includes(room)){
+        if(!Object.keys(Data).includes(room)){
             Data[room]=[];
         }
         var count=Data[room].length+1;
